@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Summarization{% endblock %}
+
+{% block content %}
+<div class="upload-form">
+    <h2 class="mb-4">Document Summarization</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="file" class="form-label">Upload Legal Document</label>
+            <input type="file" class="form-control" id="file" name="file" accept=".pdf,.txt,.doc,.docx" required>
+        </div>
+        <input type="hidden" name="action" value="summarization">
+        <button type="submit" class="btn btn-primary">Generate Summary</button>
+        
+        <div class="loading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        
+        <div class="error-message"></div>
+        <div class="result-box"></div>
+    </form>
+</div>
+{% endblock %}

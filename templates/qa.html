@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Question Answering{% endblock %}
+
+{% block content %}
+<div class="upload-form">
+    <h2 class="mb-4">Legal Question Answering</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="file" class="form-label">Upload Legal Document</label>
+            <input type="file" class="form-control" id="file" name="file" accept=".pdf,.txt,.doc,.docx" required>
+        </div>
+        <div class="mb-3">
+            <label for="question" class="form-label">Your Question</label>
+            <input type="text" class="form-control" id="question" name="question" required>
+        </div>
+        <input type="hidden" name="action" value="qa">
+        <button type="submit" class="btn btn-primary">Get Answer</button>
+        
+        <div class="loading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        
+        <div class="error-message"></div>
+        <div class="result-box"></div>
+    </form>
+</div>
+{% endblock %}
