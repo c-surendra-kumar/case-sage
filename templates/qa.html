@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="upload-form">
+  <h2 class="mb-4">Question Answering</h2>
+  
+  <!-- Step 1: Upload Document -->
+  <form id="qaUploadForm" class="upload-form" method="POST" action="/process" enctype="multipart/form-data">
+    <h4>Step 1: Upload Document</h4>
+    <div class="mb-3">
+      <label for="uploadFile" class="form-label">Upload Legal Document</label>
+      <input type="file" class="form-control" id="uploadFile" name="file" accept=".pdf,.txt,.doc,.docx" required multiple>
+    </div>
+    <input type="hidden" name="action" value="qa_upload">
+    <button type="submit" class="btn btn-primary">Upload Document</button>
+    <div class="loading" style="display: none; margin-top: 10px;">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="error-message mt-3" style="color: red;"></div>
+    <div class="result-box mt-3"></div>
+  </form>
+  
+  <hr>
+  
+  <!-- Step 2: Ask a Question -->
+  <form id="qaQueryForm" class="upload-form" method="POST" action="/process" enctype="multipart/form-data">
+    <h4>Step 2: Ask a Question</h4>
+    
+    <div class="mb-3">
+      <label for="question" class="form-label">Enter your question:</label>
+      <input type="text" class="form-control" id="question" name="question" placeholder="Type your question here" required>
+    </div>
+    <input type="hidden" name="action" value="qa_query">
+    <button type="submit" class="btn btn-primary">Get Answer</button>
+    <div class="loading" style="display: none; margin-top: 10px;">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="error-message mt-3" style="color: red;"></div>
+    <div class="result-box mt-3"></div>
+  </form>
+</div>
+{% endblock %}

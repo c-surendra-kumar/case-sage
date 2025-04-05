@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Summarization{% endblock %}
+
+{% block content %}
+<div class="upload-form" style="width: 100%; max-width: 2400px; margin: 0 auto;">
+  <h2 class="mb-4">Summarization</h2>
+  <form id="summarizationForm" class="upload-form" method="POST" action="/process" enctype="multipart/form-data" style="width: 80%; max-width: 2000px; margin: 0 auto;">
+    <div class="mb-3">
+      <label for="uploadFile" class="form-label">Upload Legal Document</label>
+      <input type="file" class="form-control" id="uploadFile" name="file" accept=".pdf,.txt,.doc,.docx" required>
+    </div>
+    <div class="mb-3">
+      <label for="method" class="form-label">Select Summarization Method:</label>
+      <select class="form-control" id="method" name="method">
+        <option value="Extractive">Extractive</option>
+        <option value="Abstractive" selected>Abstractive</option>
+        <option value="Extractive-Abstractive">Extractive-Abstractive</option>
+      </select>
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="visualizeEntities" name="visualize_entities">
+      <label class="form-check-label" for="visualizeEntities">Visualize Named Entities</label>
+    </div>
+    <input type="hidden" name="action" value="summarization">
+    <button type="submit" class="btn btn-primary">Generate Summary</button>
+    
+    <div class="loading" style="display: none; margin-top: 10px;">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    
+    <div class="error-message mt-3" style="color: red;"></div>
+    <div class="result-box mt-3"></div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero-section text-center mb-5">
+    <h1 class="display-4 mb-3">Welcome to CaseSage</h1>
+    <p class="lead mb-4">Your intelligent companion for Indian legal document analysis. Harness the power of AI to analyze, compare, and understand legal documents with precision and efficiency.</p>
+</div>
+
+<div class="row g-4">
+    <div class="col-md-6 col-lg-3">
+        <div class="card feature-card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Semantic Segmentation</h5>
+                <p class="card-text">Analyze the structure and entities in legal documents.</p>
+                <a href="/semantic" class="btn btn-primary">Try Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card feature-card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Judgment Similarity</h5>
+                <p class="card-text">Find similar judgments and legal precedents.</p>
+                <a href="/similarity" class="btn btn-primary">Try Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card feature-card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Summarization</h5>
+                <p class="card-text">Get concise summaries of legal documents.</p>
+                <a href="/summarization" class="btn btn-primary">Try Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card feature-card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Question Answering</h5>
+                <p class="card-text">Get answers to specific legal questions.</p>
+                <a href="/qa" class="btn btn-primary">Try Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
